@@ -35,7 +35,7 @@ Import-Module Azure -ErrorAction SilentlyContinue
     #Enter the full Azure ARM resource string to the location where you store your client images.
     #Your images MUST be named: OSImage_Win<version>
     #Path will be like: "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/<RG holding your images>/providers/Microsoft.Compute/images/"
-    $clientImageBaseResource = "<ARM resource path to your VM Client image base>"
+    $clientImageBaseResource = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/<RG holding your images>/providers/Microsoft.Compute/images/"
 
     # This will deploy X number of distinct ADFS farms, each with a single WAP proxy deployed in the DMZ.
     $AdfsFarmCount           = "1";
