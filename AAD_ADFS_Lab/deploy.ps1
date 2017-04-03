@@ -1,4 +1,13 @@
-﻿$startTime=Get-Date
+#### Login to the right Azure subscription
+Login-AzureRmAccount
+Write-Host "Selecting subscription '$subscriptionId'";
+If (!$subscriptionId) {
+    $subscription = (Get-AzureRMSubscription) | Out-GridView -Title "Select Azure Subscription"  -PassThru
+    $SubscriptionID = $subscription.SubscriptionId
+}
+Select-AzureRmSubscription -SubscriptionID $subscriptionId;
+
+$startTime=Get-Date
 Import-Module Azure -ErrorAction SilentlyContinue
 
 #DEPLOYMENT OPTIONS
