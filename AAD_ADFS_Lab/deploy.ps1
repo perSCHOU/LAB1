@@ -4,26 +4,26 @@ Import-Module Azure -ErrorAction SilentlyContinue
 #DEPLOYMENT OPTIONS
     $templateToDeploy        = "FullDeploy.json"
     # MUST be unique for all your simultaneous/co-existing deployments of this ADName in the same region
-    $VNetAddrSpace2ndOctet   = "<ENTER A UNIQUE DEPLOYMENT NUMBER, 0-9>"
+    $VNetAddrSpace2ndOctet   = "7"
 
     # Must be unique for simultaneous/co-existing deployments
     #"master" or "dev"
-    $RGName                  = "<YOUR RESOURCE GROUP>"
-    $DeployRegion            = "<SELECT AZURE REGION>"
+    $RGName                  = "ARG-VMOD-ADTST"
+    $DeployRegion            = "westeurope"
 
     $Branch                  = "master"
-    $AssetLocation           = "https://raw.githubusercontent.com/bretthacker/AAD_ADFS_Lab/$Branch/AAD_ADFS_Lab/"
+    $AssetLocation           = "https://raw.githubusercontent.com/perSCHOU/LAB1/$Branch/AAD_ADFS_Lab/"
 
-    $userName                = "<AD ADMINISTRATOR LOGIN>"
-    $secpasswd               = “<AD ADMINISTRATOR PASSWORD>”
-    $adDomainName            = "<2-PART AD DOMAIN NAME, LIKE CONTOSO.COM>"
+    $userName                = "bofh"
+    $secpasswd               = “Password1234”
+    $adDomainName            = "ad.contoso-movers.us"
     $usersArray              = @(
                                 @{ "FName"= "Bob";  "LName"= "Jones";    "SAM"= "bjones" },
                                 @{ "FName"= "Bill"; "LName"= "Smith";    "SAM"= "bsmith" },
                                 @{ "FName"= "Mary"; "LName"= "Phillips"; "SAM"= "mphillips" },
                                 @{ "FName"= "Sue";  "LName"= "Jackson";  "SAM"= "sjackson" }
                                )
-    $defaultUserPassword     = "P@ssw0rd"
+    $defaultUserPassword     = "Password1234"
 
     # ClientsToDeploy, array, possible values: "7","8","10-1607","10-1511"
     # Examples: Single Win7 VM = @("7")
@@ -42,7 +42,7 @@ Import-Module Azure -ErrorAction SilentlyContinue
 #END DEPLOYMENT OPTIONS
 
 #Dot-sourced variable override (optional, comment out if not using)
-. C:\dev\A_CustomDeploySettings\AAD_ADFS_Lab.ps1
+#. C:\dev\A_CustomDeploySettings\AAD_ADFS_Lab.ps1
 
 #ensure we're logged in
 Get-AzureRmContext -ErrorAction Stop
