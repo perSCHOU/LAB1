@@ -143,7 +143,10 @@
         },
         "storageProfile": {
           "imageReference": {
-            "id": "[concat(variables('ImgBase'), 'OSImage_Win', parameters('ClientsToDeploy')[copyIndex()])]"
+              "publisher": "MicrosoftWindowsServer",
+              "offer": "Windows-HUB",
+              "sku": "Windows-10-HUB",
+              "version": "latest"
           }
         },
         "networkProfile": {
